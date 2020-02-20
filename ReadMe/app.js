@@ -40,7 +40,7 @@ powerApp.version("0.1.0", {
 
 let router = new Router();
 
-router.get("/confirm", ctx => {
+router.get("/confirm", async ctx => {
   let { link, user } = ctx.query;
 
   try {
@@ -50,10 +50,14 @@ router.get("/confirm", ctx => {
       [user]: JSON.parse(link)
     };
 
-    powerApp.emitChanges("power-item", params, async ({ storage, api }) => {
-      await storage.set(user, undefined);
-      await api.updatePowerItem({ stage: "done" });
-    });
+    await powerApp.emitChanges(
+      "power-item",
+      params,
+      async ({ storage, api }) => {
+        await storage.set(user, undefined);
+        await api.updatePowerItem({ stage: "done" });
+      }
+    );
 
     ctx.body = "ok";
   } catch (error) {
