@@ -106,5 +106,5 @@ dist
 # Lowdb file
 db.json
 
-
+# ContractHelper App
 template.docx
