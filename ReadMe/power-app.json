@@ -1,0 +1,40 @@
+{
+  "name": "ReadMe",
+  "version": "0.1.0",
+  "displayName": "朕已阅",
+  "description": "确认阅读文档神器",
+  "hookBaseURL": "http://localhost:9003/mf",
+  "permissions": ["task:update"],
+  "contributions": {
+    "powerItems": [
+      {
+        "name": "readme",
+        "displayName": "朕已阅",
+        "description": "朕已阅 - 流程项",
+        "type": "checkable",
+        "fields": [],
+        "inputs": [
+          {
+            "name": "link",
+            "displayName": "阅读链接"
+          },
+          {
+            "name": "user",
+            "displayName": "阅读人",
+            "bind": {
+              "type": "variable",
+              "variable": "node:assignee"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "name": "goRead",
+            "displayName": "阅读文档",
+            "target": "http://localhost:9003/readme.html"
+          }
+        ]
+      }
+    ]
+  }
+}

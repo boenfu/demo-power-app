@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>朕已阅！</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background-color: #eee;
+        overflow: hidden;
+      }
+      #doc {
+        background-color: #fff;
+        width: 99%;
+        height: calc(100% - 60px);
+        margin: 2px 0.5%;
+        border-radius: 12px;
+        box-shadow: 0 0 12px #ccc;
+      }
+
+      button {
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: none;
+        outline: none;
+        background: #009960;
+        font-size: 18px;
+        padding: 8px 24px;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        box-shadow: 2px 2px 4px #ccc;
+      }
+
+      button.disable {
+        background: #ccc;
+        color: #666;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+
+  <body>
+    <iframe id="doc" frameborder="0"></iframe>
+    <button id="btn" class="disable">-</button>
+
+    <script>
+      let seconds = 10;
+      let params = new URLSearchParams(location.search);
+
+      doc.src = JSON.parse(params.get("link"));
+
+      function secondsHandler() {
+        if (seconds <= 0) {
+          btn.classList.remove("disable");
+          btn.innerText = "朕已阅读文档";
+
+          document
+            .querySelector("button")
+            .addEventListener("click", sendInputs);
+
+          return;
+        }
+
+        btn.innerText = seconds + " 秒后可确认";
+
+        setTimeout(secondsHandler, 1000);
+
+        seconds -= 1;
+      }
+
+      function sendInputs() {
+        fetch("/confirm" + location.search)
+          .then(r => r.text())
+          .then(res => {
+            if (res === "ok") {
+              btn.innerText = "恭请皇上退朝";
+
+              setTimeout(() => {
+                window.close();
+              }, 1200);
+            }
+          });
+      }
+
+      doc.onload = function() {
+        btn.style.display = "block";
+        secondsHandler();
+      };
+    </script>
+  </body>
+</html>
