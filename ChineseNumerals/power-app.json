@@ -1,0 +1,44 @@
+{
+  "name": "ChineseNumerals",
+  "version": "0.1.0",
+  "displayName": "金额转大写",
+  "description": "金额自动转大写",
+  "hookBaseURL": "http://localhost:9003",
+  "permissions": [],
+  "contributions": {
+    "powerItems": [
+      {
+        "name": "turn",
+        "displayName": "中文金额",
+        "description": "填入数字金额 自动转为大写",
+        "type": "checkable",
+        "fields": [
+          {
+            "displayName": "金额",
+            "base": "input",
+            "output": "cn:number",
+            "required": true
+          },
+          {
+            "displayName": "金额 (大写)",
+            "base": "input",
+            "initialValue": {
+              "type": "variable",
+              "variable": "cn:result"
+            }
+          }
+        ],
+        "inputs": [
+          {
+            "name": "number",
+            "displayName": "金额",
+            "default": {
+              "type": "variable",
+              "variable": "cn:number"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
