@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "yarn link @makeflow/sdk && node ./app.js",
+    "pub": "node ~/workspace/makeflow-sdk/bld/program/cli.js publish"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}

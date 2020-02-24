@@ -1,0 +1,57 @@
+{
+  "name": "TaskPie",
+  "version": "0.1.1",
+  "displayName": "任务完成饼图",
+  "description": "用户完成任务数的占比图",
+  "hookBaseURL": "http://localhost:9003",
+  "contributions": {
+    "powerGlances": [
+      {
+        "name": "task",
+        "displayName": "任务饼图",
+        "description": "",
+        "inputs": [
+          {
+            "name": "user",
+            "displayName": "任务负责人",
+            "bind": {
+              "type": "variable",
+              "variable": "task:assignee"
+            }
+          },
+          {
+            "name": "stage",
+            "displayName": "任务状态",
+            "bind": {
+              "type": "variable",
+              "variable": "task:stage"
+            }
+          }
+        ],
+        "configs": [],
+        "reports": [
+          {
+            "name": "task",
+            "title": "任务完成饼图",
+            "icon": "chart-pie",
+            "elements": [
+              {
+                "type": "chart",
+                "dataName": "tasks",
+                "gird": {
+                  "column": "0",
+                  "row": "0"
+                },
+                "options": {}
+              }
+            ],
+            "layout": {
+              "columns": "2",
+              "rows": "4"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
