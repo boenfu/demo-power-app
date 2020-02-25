@@ -1,0 +1,17 @@
+{
+  "contributions": {
+    "powerItems": [
+      {
+        "name": "demo",
+        "displayName": "演示统计 power item",
+        "description": "演示统计 power item 使用次数",
+        "type": "checkable"
+      }
+    ]
+  },
+  "name": "statistics",
+  "version": "0.1.0",
+  "displayName": "应用统计",
+  "description": "应用统计 Demo",
+  "hookBaseURL": "http://localhost:9003"
+}

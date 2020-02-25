@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APP 信息统计</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background-color: #eee;
+        overflow: hidden;
+      }
+
+      main {
+        width: 30%;
+        text-align: left;
+        margin: 200px auto;
+      }
+
+      h2 {
+        color: #009960;
+      }
+
+      h4 {
+        color: #666;
+      }
+
+      p {
+        color: #333;
+        padding-left: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h2 id="displayNameEle"></h3>
+      <h4 id="descriptionEle"></h4>
+      <p>应用安装次数： <span id="installationEle"></span></p>
+      <p>超级流程项使用次数： <span id="powerItemEle"></span></p>
+    </main>
+    <script>
+      fetch("/getStatistics")
+        .then(r => r.json())
+        .then(
+          ({
+            displayName,
+            description,
+            statistics: { installation, powerItem }
+          }) => {
+            displayNameEle.innerText = displayName;
+            descriptionEle.innerText = description;
+            installationEle.innerText = installation;
+            powerItemEle.innerText = powerItem;
+          }
+        );
+    </script>
+  </body>
+</html>
