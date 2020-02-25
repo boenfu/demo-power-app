@@ -1,0 +1,40 @@
+{
+  "name": "github",
+  "version": "0.1.0",
+  "displayName": "GitHub issue",
+  "description": "将 GitHub 的 issue 创建为 makeflow 的任务",
+  "hookBaseURL": "http://localhost:9003",
+  "permissions": ["task:create"],
+  "configs": [
+    {
+      "name": "procedures",
+      "displayName": "创建任务流程",
+      "description": "创建任务流程",
+      "field": "procedure-array",
+      "required": true
+    },
+    {
+      "name": "team",
+      "displayName": "创建任务团队",
+      "description": "创建任务流程",
+      "field": "team",
+      "required": true
+    },
+    {
+      "name": "repo",
+      "displayName": "Git仓库名",
+      "description": "Git仓库名",
+      "field": "text",
+      "required": true
+    },
+    {
+      "name": "secret",
+      "displayName": "密钥",
+      "field": "password",
+      "required": true
+    }
+  ],
+  "resources": {
+    "tags": []
+  }
+}
