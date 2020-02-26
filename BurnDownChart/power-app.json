@@ -1,0 +1,63 @@
+{
+  "name": "BurnDown",
+  "version": "0.1.0",
+  "displayName": "迭代燃尽图",
+  "description": "迭代燃尽图",
+  "hookBaseURL": "http://localhost:9003",
+  "contributions": {
+    "powerGlances": [
+      {
+        "name": "chart",
+        "displayName": "燃尽图",
+        "description": "",
+        "inputs": [
+          {
+            "name": "completedAt",
+            "displayName": "任务负责人",
+            "bind": {
+              "type": "variable",
+              "variable": "task:completed-at"
+            }
+          }
+        ],
+        "configs": [
+          {
+            "name": "days",
+            "displayName": "迭代天数 (数字，无单位)",
+            "description": "",
+            "field": "text",
+            "required": true
+          },
+          {
+            "name": "start",
+            "displayName": "开始日期",
+            "field": "date",
+            "required": true
+          }
+        ],
+        "reports": [
+          {
+            "name": "burndown",
+            "title": "迭代燃尽图",
+            "icon": "chart-line",
+            "elements": [
+              {
+                "type": "chart",
+                "dataName": "burndown",
+                "gird": {
+                  "column": "0",
+                  "row": "0"
+                },
+                "options": {}
+              }
+            ],
+            "layout": {
+              "columns": "2",
+              "rows": "4"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
