@@ -1,0 +1,99 @@
+{
+  "name": "WorkDay",
+  "version": "0.1.1",
+  "displayName": "每日助手",
+  "description": "一键报告老板 今天的日报",
+  "hookBaseURL": "http://localhost:9003",
+  "permissions": ["task:create"],
+  "contributions": {
+    "powerGlances": [
+      {
+        "name": "WorkDay",
+        "displayName": "每日助手",
+        "inputs": [
+          {
+            "name": "brief",
+            "displayName": "任务简述",
+            "bind": {
+              "type": "variable",
+              "variable": "task:brief"
+            }
+          },
+          {
+            "name": "num",
+            "displayName": "任务数字编号",
+            "bind": {
+              "type": "variable",
+              "variable": "task:numeric-id"
+            }
+          },
+          {
+            "name": "assignee",
+            "displayName": "任务负责人",
+            "bind": {
+              "type": "variable",
+              "variable": "task:assignee"
+            }
+          },
+          {
+            "name": "completedAt",
+            "displayName": "完成时间",
+            "bind": {
+              "type": "variable",
+              "variable": "task:completed-at"
+            }
+          }
+        ]
+      }
+    ],
+    "powerItems": [
+      {
+        "name": "WorkDay",
+        "displayName": "每日报表",
+        "type": "checkable",
+        "inputs": [],
+        "fields": [
+          {
+            "displayName": "接收人",
+            "base": "user",
+            "required": true,
+            "output": "receiver"
+          }
+        ],
+        "actions": [
+          {
+            "name": "create",
+            "displayName": "创建每日报表",
+            "inputs": [
+              {
+                "name": "task",
+                "type": "variable",
+                "variable": "task:id"
+              },
+              {
+                "name": "assignee",
+                "type": "variable",
+                "variable": "task:assignee"
+              },
+              {
+                "name": "receiver",
+                "type": "variable",
+                "variable": "receiver"
+              },
+              {
+                "name": "team",
+                "type": "variable",
+                "variable": "task:team"
+              },
+              {
+                "name": "procedure",
+                "type": "variable",
+                "variable": "task:procedure"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
