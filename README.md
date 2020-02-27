@@ -2,7 +2,7 @@
 
 :tada::tada::tada: 不断更新中
 
-##目录
+## 目录
 
 - 流程项
   - [财务金额数字转大写](https://github.com/boenfu/demo-power-app/tree/master/ChineseNumerals)
