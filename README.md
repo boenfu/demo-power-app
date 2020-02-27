@@ -1,12 +1,14 @@
 # Makeflow 示例应用
 
-:tada::tada::tada: 不断更新中
+:tada::tada::tada: 持续更新中 :tada::tada::tada:
 
 ## 目录
 
+> 点击对应链接查看详情
+
 - 流程项
   - [财务金额数字转大写](https://github.com/boenfu/demo-power-app/tree/master/ChineseNumerals)
-  - [确认文档阅读](https://github.com/boenfu/demo-power-app/tree/master/ReadMe)
+  - [确认文档已阅读工具](https://github.com/boenfu/demo-power-app/tree/master/ReadMe)
 - 概览
   - 图表类
     - [迭代燃尽图](https://github.com/boenfu/demo-power-app/tree/master/BurnDownChart)
@@ -14,11 +16,11 @@
 - 其他
   - [GitHub Issue 同步](https://github.com/boenfu/demo-power-app/tree/master/GitHubIssue)
   - [每日日报助手](https://github.com/boenfu/demo-power-app/tree/master/WorkDay)
-  - [应用使用统计](https://github.com/boenfu/demo-power-app/tree/master/InstallationStatistics)
+  - [应用数据统计](https://github.com/boenfu/demo-power-app/tree/master/InstallationStatistics)
 
 ---
 
-## 部分截图
+## 部分使用截图
 
 ### 财务金额数字转大写
 
