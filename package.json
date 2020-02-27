@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "demo-power-app",
+  "repository": "git@github.com:boenfu/demo-power-app.git",
+  "license": "MIT",
+  "scripts": {
+    "pub": "node ~/workspace/makeflow-sdk/bld/program/cli.js publish"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  }
+}
