@@ -1,58 +1,57 @@
-const PATH = require("path");
-const FS = require("fs");
+const PATH = require('path');
+const FS = require('fs');
 
-const Koa = require("koa");
-const static = require("koa-static");
-const Router = require("koa-router");
+const Koa = require('koa');
+const Static = require('koa-static');
+const Router = require('koa-router');
 
-const { PowerApp } = require("@makeflow/sdk");
+const {PowerApp} = require('@makeflow/sdk');
 
 const app = new Koa();
 
-app.use(static(PATH.join(__dirname, "./static")));
+app.use(Static(PATH.join(__dirname, './static')));
 
-// mock db
+// 模拟的统计数据的存储库
 
-const db = { installation: 0, powerItem: 0 };
+const db = {installation: 0, powerItem: 0};
 
 // power app
 
 const powerApp = new PowerApp();
 
-powerApp.version("0.1.0", {
+powerApp.version('0.1.0', {
   installation: {
+    // 每次安装 + 1
     activate() {
       db.installation += 1;
-    }
+    },
   },
   contributions: {
     powerItems: {
       demo: {
+        // 每次激活 + 1
         activate() {
           db.powerItem += 1;
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 });
 
 // router
 
 let router = new Router();
 
-router.get("/getStatistics", ctx => {
+router.get('/getStatistics', ctx => {
   let definition = JSON.parse(
-    FS.readFileSync(PATH.resolve(__dirname, "power-app.json"), "utf-8")
+    FS.readFileSync(PATH.resolve(__dirname, 'power-app.json'), 'utf-8'),
   );
 
   definition.statistics = db;
   ctx.body = definition;
 });
 
-app.use(router.routes());
-
-// start
-
-powerApp.koaWith(app, {
-  port: 9003
-});
+app
+  .use(router.routes())
+  .use(powerApp.koa())
+  .listen(9003);
