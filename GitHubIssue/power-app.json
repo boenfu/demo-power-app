@@ -1,5 +1,5 @@
 {
-  "name": "github",
+  "name": "GitHubIssue",
   "version": "0.1.0",
   "displayName": "GitHub issue",
   "description": "将 GitHub 的 issue 创建为 makeflow 的任务",
