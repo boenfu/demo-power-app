@@ -1,0 +1,138 @@
+{
+  "displayName": "日报",
+  "roles": [],
+  "options": {
+    "description": true
+  },
+  "form": {
+    "fields": [
+      {
+        "id": "203d0e2f-2c21-4191-8e83-ae1c7d4923c6",
+        "displayName": "单项选择",
+        "definition": "radio",
+        "data": {
+          "candidates": [
+            {
+              "text": "审批",
+              "value": "0"
+            },
+            {
+              "text": "填写",
+              "value": "1"
+            }
+          ]
+        },
+        "initialValue": {
+          "type": "value",
+          "value": "0"
+        },
+        "output": "mode"
+      }
+    ]
+  },
+  "branches": [
+    {
+      "id": "52412510-546f-4398-b6f4-7ea84ed521bd",
+      "options": {},
+      "nodes": [
+        {
+          "type": "branches",
+          "branches": [
+            {
+              "id": "531afff8-2c63-4ad9-9ee2-5bba80a5afa3",
+              "options": {
+                "condition": [
+                  [
+                    {
+                      "left": {
+                        "type": "unknown",
+                        "variable": "mode"
+                      },
+                      "operator": "=",
+                      "right": {
+                        "type": "unknown",
+                        "value": "0"
+                      }
+                    }
+                  ]
+                ]
+              },
+              "nodes": [
+                {
+                  "type": "items",
+                  "id": "45567ee0-5e01-453f-8191-68ef5555891f",
+                  "options": {
+                    "displayName": "审批",
+                    "approval": true,
+                    "assignment": "node-owner"
+                  },
+                  "editorState": {
+                    "blocks": [
+                      {
+                        "key": "dmmae",
+                        "text": "确认查看此份日报",
+                        "type": "procedure-item",
+                        "depth": 0,
+                        "inlineStyleRanges": [],
+                        "entityRanges": [],
+                        "data": {
+                          "type": "indicator"
+                        }
+                      }
+                    ],
+                    "entityMap": {}
+                  }
+                }
+              ]
+            },
+            {
+              "id": "f8452603-59cb-4ebf-b99f-d30941491661",
+              "options": {
+                "condition": [
+                  [
+                    {
+                      "left": {
+                        "type": "unknown",
+                        "variable": "mode"
+                      },
+                      "operator": "=",
+                      "right": {
+                        "type": "unknown",
+                        "value": "1"
+                      }
+                    }
+                  ]
+                ]
+              },
+              "nodes": [
+                {
+                  "type": "items",
+                  "id": "6dfc9ee0-9ab5-4a63-aa5c-c7c8e4883794",
+                  "options": {
+                    "displayName": "填写"
+                  },
+                  "editorState": {
+                    "blocks": [
+                      {
+                        "key": "b1rrt",
+                        "text": "填写日报",
+                        "type": "procedure-item",
+                        "depth": 0,
+                        "inlineStyleRanges": [],
+                        "entityRanges": [],
+                        "data": {
+                          "type": "checkable"
+                        }
+                      }
+                    ],
+                    "entityMap": {}
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

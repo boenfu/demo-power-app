@@ -1,6 +1,6 @@
 {
   "name": "WorkDay",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "displayName": "每日助手",
   "description": "一键报告老板 今天的日报",
   "hookBaseURL": "http://localhost:9003",
