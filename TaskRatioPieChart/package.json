@@ -4,6 +4,6 @@
     "start": "yarn link @makeflow/sdk && node ./app.js"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.21"
   }
 }
